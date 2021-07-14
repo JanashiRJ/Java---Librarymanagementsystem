@@ -1,3 +1,8 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +18,14 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    
     public Login() {
+        super ("Login");
         initComponents();
+        conn = Databaseconnection.connetion();
     }
 
     /**
@@ -66,10 +77,20 @@ public class Login extends javax.swing.JFrame {
         loginbutton.setBackground(new java.awt.Color(204, 0, 255));
         loginbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         loginbutton.setText("Login");
+        loginbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginbuttonActionPerformed(evt);
+            }
+        });
 
         cancelbutton.setBackground(new java.awt.Color(204, 0, 255));
         cancelbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cancelbutton.setText("Cancel");
+        cancelbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelbuttonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -125,11 +146,40 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
 
+    private void loginbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbuttonActionPerformed
+        // TODO add your handling code here:
+        try{
+            stmt = conn.createStatement();
+            String Username = username.getText();
+            String Password = password.getText();
+            
+            String sql = "SELECT *FROM userlogin WHERE UserName ='"+Username+"' && Password ='"+Password+"'";
+            rs = stmt.executeQuery(sql);
+            if (rs.next()){
+                setVisible(false);
+                Home object = new Home();
+                object.setVisible(true);
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"username or password is invalid.");
+            }
+            }catch(Exception e){ JOptionPane.showMessageDialog(null, e);}
+            
+
+    }//GEN-LAST:event_loginbuttonActionPerformed
+
+    private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+          
+    }//GEN-LAST:event_cancelbuttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+    public static void main(String args[]){
+        /*Set the Nimbus look and feel*/
+       
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -153,13 +203,13 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable(){
+            public void run(){
                 new Login().setVisible(true);
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbutton;
     private javax.swing.JLabel jLabel1;
@@ -171,4 +221,4 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
-}
+  }
