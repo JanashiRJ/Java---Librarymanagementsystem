@@ -188,6 +188,11 @@ public class AddMembers extends javax.swing.JFrame {
 
     private void BackbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbuttonActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        Home object = new Home();
+        object.setVisible(true);
+        
+          
     }//GEN-LAST:event_BackbuttonActionPerformed
 
     /**
