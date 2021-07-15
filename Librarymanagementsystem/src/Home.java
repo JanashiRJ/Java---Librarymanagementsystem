@@ -80,6 +80,11 @@ public class Home extends javax.swing.JFrame {
 
         isuuebookicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/im.png"))); // NOI18N
         isuuebookicon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        isuuebookicon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isuuebookiconActionPerformed(evt);
+            }
+        });
 
         issuebooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         issuebooklabel.setText("Issue Books");
@@ -136,13 +141,26 @@ public class Home extends javax.swing.JFrame {
 
     private void bookiconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookiconActionPerformed
         // TODO add your handling code here:
+            setVisible(false);
+            AddBooks object = new AddBooks();
+            object.setVisible(true);
         
     }//GEN-LAST:event_bookiconActionPerformed
 
     private void membericonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_membericonActionPerformed
         // TODO add your handling code here:
+            setVisible(false);
+            AddMembers object = new AddMembers();
+            object.setVisible(true);
 
     }//GEN-LAST:event_membericonActionPerformed
+
+    private void isuuebookiconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isuuebookiconActionPerformed
+        // TODO add your handling code here:
+           setVisible(false);
+           IssueBooks object = new IssueBooks();
+           object.setVisible(true);
+    }//GEN-LAST:event_isuuebookiconActionPerformed
 
     /**
      * @param args the command line arguments
