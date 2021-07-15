@@ -1,3 +1,8 @@
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +18,14 @@ public class AddMembers extends javax.swing.JFrame {
     /**
      * Creates new form AddMembers
      */
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    
     public AddMembers() {
+        super ("Add_Members");
         initComponents();
+        conn = Databaseconnection.connetion();
     }
 
     /**
@@ -42,7 +53,7 @@ public class AddMembers extends javax.swing.JFrame {
         textCity = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         Backbutton = new javax.swing.JButton();
-        Addbutton = new javax.swing.JButton();
+        Submitbutton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -109,14 +120,14 @@ public class AddMembers extends javax.swing.JFrame {
             }
         });
 
-        Addbutton.setBackground(new java.awt.Color(102, 102, 102));
-        Addbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Addbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/submit-icon-png-1.jpg"))); // NOI18N
-        Addbutton.setText("  Submit");
-        Addbutton.setBorder(null);
-        Addbutton.addActionListener(new java.awt.event.ActionListener() {
+        Submitbutton.setBackground(new java.awt.Color(102, 102, 102));
+        Submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Submitbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/submit-icon-png-1.jpg"))); // NOI18N
+        Submitbutton.setText("  Submit");
+        Submitbutton.setBorder(null);
+        Submitbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddbuttonActionPerformed(evt);
+                SubmitbuttonActionPerformed(evt);
             }
         });
 
@@ -127,7 +138,7 @@ public class AddMembers extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(242, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(111, 111, 111))
         );
@@ -135,7 +146,7 @@ public class AddMembers extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(485, Short.MAX_VALUE)
-                .addComponent(Addbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -150,12 +161,29 @@ public class AddMembers extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textNameActionPerformed
 
-    private void AddbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddbuttonActionPerformed
+    private void SubmitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbuttonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AddbuttonActionPerformed
+        try{
+            stmt = conn.createStatement();
+            String member_name = textName.getText();
+            String email = textEmail.getText();
+            String  Id_no = textId.getText();
+            int contact_no = Integer.parseInt(textContact.getText());
+            String Guardian_name = textGuradian.getText();
+            String City = textCity.getText();
+            
+            String sql = "INSERT INTO NEW_MEMBER(Member_Name, Email,ID_Number,Contact_NO,Guardian_Name,City) VALUES('"+member_name+"', '"+email+"', '"+Id_no+"','"+contact_no+"','"+Guardian_name+"','"+City+"')";
+            
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Data is successfully inserted");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_SubmitbuttonActionPerformed
 
     private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:"
     }//GEN-LAST:event_textIdActionPerformed
 
     private void BackbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbuttonActionPerformed
@@ -198,7 +226,6 @@ public class AddMembers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Addbutton;
     private javax.swing.JButton Backbutton;
     private javax.swing.JLabel Cantactfield;
     private javax.swing.JLabel Cityfield;
@@ -206,6 +233,7 @@ public class AddMembers extends javax.swing.JFrame {
     private javax.swing.JLabel Guradianfield;
     private javax.swing.JLabel Idfield;
     private javax.swing.JLabel Namefield;
+    private javax.swing.JButton Submitbutton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
