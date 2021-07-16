@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,6 +16,8 @@
  * @author Admin
  */
 public class IssueBooks extends javax.swing.JFrame {
+
+    //private String BookId;
 
     /**
      * Creates new form IssueBooks
@@ -35,9 +44,9 @@ public class IssueBooks extends javax.swing.JFrame {
         DueDate = new com.toedter.calendar.JDateChooser();
         BokIdfield = new javax.swing.JTextField();
         MemberIdfield = new javax.swing.JTextField();
-        IssueButton = new javax.swing.JButton();
         BackButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        IssueButton = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -70,34 +79,45 @@ public class IssueBooks extends javax.swing.JFrame {
         });
         getContentPane().add(MemberIdfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 230, 183, 30));
 
-        IssueButton.setBackground(new java.awt.Color(153, 153, 153));
-        IssueButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        IssueButton.setText("Isuue");
-        IssueButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IssueButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(IssueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 402, 183, 37));
-
         BackButton.setBackground(new java.awt.Color(153, 153, 153));
         BackButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         BackButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/arrow-left-red-circle-web-glossy-icon-stock-illustration_gg64765226.jpg"))); // NOI18N
         BackButton.setText("  Back to Home");
+        BackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 468, 183, 40));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Issue Books", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
+        IssueButton.setBackground(new java.awt.Color(153, 153, 153));
+        IssueButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        IssueButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OIP (1).jpg"))); // NOI18N
+        IssueButton.setText("  Isuue");
+        IssueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IssueButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(239, Short.MAX_VALUE)
+                .addComponent(IssueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(380, Short.MAX_VALUE)
+                .addComponent(IssueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(202, 202, 202))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 650));
@@ -111,8 +131,46 @@ public class IssueBooks extends javax.swing.JFrame {
 
     private void IssueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueButtonActionPerformed
         // TODO add your handling code here:
+        SimpleDateFormat dFormat=new SimpleDateFormat("dd-MM-yyyy");
+        String bookID = BokIdfield.getText();
+        String memberId = MemberIdfield.getText();
+        String issueDate = dFormat.format(IssueDate.getDate());
+        String dueDate = dFormat.format(DueDate.getDate());
+        String returnBook ="No";
         
+        try{
+            Connection con=Databaseconnection.getCon();
+            Statement st= con.createStatement();
+            ResultSet rs=st.executeQuery("select *from book where No ='"+bookID+"'");
+            if(rs.next())
+            {
+                ResultSet rsl=st.executeQuery("Select 'from new_member where ID_Number='"+memberId+"'");
+                if(rsl.next());
+                {
+                    st.executeUpdate ("insert into issuebooks values('"+memberId+"','"+bookID+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')");
+                    
+                     JOptionPane.showMessageDialog(null,"Book successfully issued");
+                     setVisible(false);
+                     new IssueBooks().setVisible(true);
+                     
+                }
+               // else 
+                JOptionPane.showConfirmDialog(null,"Incorrect MemberID");
+                
+            }
+            else
+                JOptionPane.showConfirmDialog(null,"Incorrect BookId ");
+            
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showConfirmDialog(null,"Connection error");     
+        }             
     }//GEN-LAST:event_IssueButtonActionPerformed
+
+    private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BackButtonActionPerformed
 
     /**
      * @param args the command line arguments
