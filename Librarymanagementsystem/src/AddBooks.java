@@ -1,3 +1,8 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +18,14 @@ public class AddBooks extends javax.swing.JFrame {
     /**
      * Creates new form AddBooks
      */
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    
     public AddBooks() {
+        super("Add Books");
         initComponents();
+        conn = Databaseconnection.connetion();
     }
 
     /**
@@ -119,6 +130,11 @@ public class AddBooks extends javax.swing.JFrame {
         submitButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1111.jpg"))); // NOI18N
         submitButton.setText("  Submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
         jPanel2.add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, 180, 35));
 
         backButton.setBackground(new java.awt.Color(153, 153, 153));
@@ -150,6 +166,10 @@ public class AddBooks extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        Home object = new Home();
+        object.setVisible(true);
+        
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void textIsbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIsbnActionPerformed
@@ -167,6 +187,30 @@ public class AddBooks extends javax.swing.JFrame {
     private void textQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textQuantityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textQuantityActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // TODO add your handling code here:
+        try{
+            stmt = conn.createStatement();
+            int Isbn = Integer.parseInt(textIsbn.getText());
+            String title = textTitle.getText();
+            String author = textAuthor.getText();
+            String publisher = textPublisher.getText();
+            String date = textDate.getText();
+            String category = textCategory.getText();
+            int quantity = Integer.parseInt(textQuantity.getText());
+           
+            String sql = "INSERT INTO books(ISBN,Title,Author,Publisher,Date,Category,Quantity)VALUES('"+Isbn+"', '"+title+"','"+author+"','"+publisher+"','"+date+"','"+category+"','"+quantity+"')";
+
+            
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Data is sucessfuly inserted");
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
