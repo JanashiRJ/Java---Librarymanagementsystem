@@ -35,6 +35,8 @@ public class Home extends javax.swing.JFrame {
         membericon = new javax.swing.JButton();
         isuuebookicon = new javax.swing.JButton();
         issuebooklabel = new javax.swing.JLabel();
+        returnbookButton = new javax.swing.JButton();
+        Returnbooklabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,6 +91,12 @@ public class Home extends javax.swing.JFrame {
         issuebooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         issuebooklabel.setText("Issue Books");
 
+        returnbookButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download.jpg"))); // NOI18N
+        returnbookButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+
+        Returnbooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Returnbooklabel.setText("Return Book");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -109,11 +117,17 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
+                                .addGap(77, 77, 77)
                                 .addComponent(isuuebookicon))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(issuebooklabel)))))
+                                .addGap(103, 103, 103)
+                                .addComponent(issuebooklabel))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(408, 408, 408)
+                        .addComponent(Returnbooklabel))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(389, 389, 389)
+                        .addComponent(returnbookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(193, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -121,17 +135,24 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jLabel2)
-                .addGap(63, 63, 63)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(membericon)
-                    .addComponent(bookicon)
-                    .addComponent(isuuebookicon))
-                .addGap(32, 32, 32)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bookicon)
+                        .addComponent(membericon))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(isuuebookicon)
+                        .addGap(4, 4, 4)))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(issuebooklabel))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(returnbookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Returnbooklabel)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
@@ -198,6 +219,7 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Returnbooklabel;
     private javax.swing.JButton bookicon;
     private javax.swing.JLabel issuebooklabel;
     private javax.swing.JButton isuuebookicon;
@@ -207,5 +229,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton membericon;
+    private javax.swing.JButton returnbookButton;
     // End of variables declaration//GEN-END:variables
 }
