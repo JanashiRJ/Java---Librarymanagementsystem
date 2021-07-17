@@ -37,6 +37,8 @@ public class Home extends javax.swing.JFrame {
         issuebooklabel = new javax.swing.JLabel();
         returnbookButton = new javax.swing.JButton();
         Returnbooklabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        ShowdetailsButton = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -54,15 +56,19 @@ public class Home extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Home", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
         jLabel2.setText("Welcome to Library Management System");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 82, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Add New Members");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 362, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Add New Books");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 362, -1, -1));
 
         bookicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images.jpg"))); // NOI18N
         bookicon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -71,6 +77,7 @@ public class Home extends javax.swing.JFrame {
                 bookiconActionPerformed(evt);
             }
         });
+        jPanel2.add(bookicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 176, 154, -1));
 
         membericon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student.png"))); // NOI18N
         membericon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -79,6 +86,7 @@ public class Home extends javax.swing.JFrame {
                 membericonActionPerformed(evt);
             }
         });
+        jPanel2.add(membericon, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 176, 155, -1));
 
         isuuebookicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/im.png"))); // NOI18N
         isuuebookicon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -87,73 +95,37 @@ public class Home extends javax.swing.JFrame {
                 isuuebookiconActionPerformed(evt);
             }
         });
+        jPanel2.add(isuuebookicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 172, -1, -1));
 
         issuebooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         issuebooklabel.setText("Issue Books");
+        jPanel2.add(issuebooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, -1, -1));
 
         returnbookButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download.jpg"))); // NOI18N
         returnbookButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        returnbookButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnbookButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(returnbookButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 140, 150));
 
         Returnbooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Returnbooklabel.setText("Return Book");
+        jPanel2.add(Returnbooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(membericon, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addGap(84, 84, 84)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bookicon, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(isuuebookicon))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(issuebooklabel))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(408, 408, 408)
-                        .addComponent(Returnbooklabel))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(389, 389, 389)
-                        .addComponent(returnbookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(193, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel2)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(bookicon)
-                        .addComponent(membericon))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(isuuebookicon)
-                        .addGap(4, 4, 4)))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(issuebooklabel))
-                .addGap(34, 34, 34)
-                .addComponent(returnbookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Returnbooklabel)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1111122.png"))); // NOI18N
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 130, 160));
+
+        ShowdetailsButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ShowdetailsButton.setText("Show Details");
+        jPanel2.add(ShowdetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
 
@@ -182,6 +154,21 @@ public class Home extends javax.swing.JFrame {
            IssueBooks object = new IssueBooks();
            object.setVisible(true);
     }//GEN-LAST:event_isuuebookiconActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+           setVisible(false);
+           ShowAllDetails object = new ShowAllDetails();
+           object.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void returnbookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookButtonActionPerformed
+        // TODO add your handling code here:
+           setVisible(false);
+           ReturnBooks object = new ReturnBooks();
+           object.setVisible(true);
+           
+    }//GEN-LAST:event_returnbookButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,9 +207,11 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Returnbooklabel;
+    private javax.swing.JLabel ShowdetailsButton;
     private javax.swing.JButton bookicon;
     private javax.swing.JLabel issuebooklabel;
     private javax.swing.JButton isuuebookicon;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
