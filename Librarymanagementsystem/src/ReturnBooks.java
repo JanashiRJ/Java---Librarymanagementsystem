@@ -48,11 +48,12 @@ public class ReturnBooks extends javax.swing.JFrame {
         Issuefield = new javax.swing.JTextField();
         Duefield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Return Books", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -99,6 +100,17 @@ public class ReturnBooks extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 417, 153, 44));
 
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/R.png"))); // NOI18N
+        jButton2.setText("  Return");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 160, 40));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 651));
 
         pack();
@@ -136,6 +148,26 @@ public class ReturnBooks extends javax.swing.JFrame {
     private void bookfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bookfieldActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try{
+            stmt = conn.createStatement();
+            String memberid = id.getText();
+            String bookid = bookfield.getText();
+            String issuedate = Issuefield.getText();
+            String duedate = Duefield.getText();
+            String returnbooks = "Yes";
+            
+            String sql = "INSERT INTO returnbooks(ID_number, No, IssueDate, DueDate, ReturnBooks)VALUES('"+memberid+"','"+bookid+"','"+issuedate+"','"+duedate+"','"+returnbooks+"')";
+            
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Return Data is successfull inserted");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,6 +211,7 @@ public class ReturnBooks extends javax.swing.JFrame {
     private javax.swing.JTextField bookfield;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
