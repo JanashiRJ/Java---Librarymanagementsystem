@@ -1,12 +1,9 @@
+
 import java.sql.Connection;
-//import Project.Databaseconnection;
-//import static java.awt.event.PaintEvent.UPDATE;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-
-
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,18 +17,16 @@ import javax.swing.JOptionPane;
  */
 public class ReturnBooks extends javax.swing.JFrame {
 
-    //pivate Object con;
-
     /**
-     * Creates new form ReturnBooks
+     * Creates new form returnbook
      */
-    //Connection conn = null;
-    //Statement stmt = null;
-    //ResultSet rs = null;
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
     
     public ReturnBooks() {
         initComponents();
-      //  Connection conn = Databaseconnection.connetion();
+        conn = Databaseconnectionprovider.connetion();
     }
 
     /**
@@ -43,157 +38,104 @@ public class ReturnBooks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Booklabel = new javax.swing.JLabel();
-        Memberlabel = new javax.swing.JLabel();
-        Issuelabel = new javax.swing.JLabel();
-        Duelabel = new javax.swing.JLabel();
-        Bookfield = new javax.swing.JTextField();
-        Memberfield = new javax.swing.JTextField();
-        IssueField = new javax.swing.JTextField();
-        DueField = new javax.swing.JTextField();
-        SearchButton = new javax.swing.JButton();
-        ReturnButton = new javax.swing.JButton();
-        BackButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        id = new javax.swing.JTextField();
+        bookfield = new javax.swing.JTextField();
+        Issuefield = new javax.swing.JTextField();
+        Duefield = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Booklabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Booklabel.setText("Book ID");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Return Books", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Memberlabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Memberlabel.setText("Member ID");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Member ID");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 151, -1, -1));
 
-        Issuelabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Issuelabel.setText("Issue Date");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("Book ID");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 218, -1, -1));
 
-        Duelabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Duelabel.setText("Due Date");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Issue Date");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 285, -1, -1));
 
-        SearchButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        SearchButton.setText("Search");
-        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Due Date");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 351, -1, -1));
+
+        id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchButtonActionPerformed(evt);
+                idActionPerformed(evt);
             }
         });
+        jPanel1.add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 147, 153, 29));
 
-        ReturnButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ReturnButton.setText("Return");
-        ReturnButton.addActionListener(new java.awt.event.ActionListener() {
+        bookfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReturnButtonActionPerformed(evt);
+                bookfieldActionPerformed(evt);
             }
         });
+        jPanel1.add(bookfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 214, 153, 29));
+        jPanel1.add(Issuefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 281, 153, 29));
+        jPanel1.add(Duefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 346, 153, 30));
 
-        BackButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BackButton.setText("Back to Home");
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/OIP (2).jpg"))); // NOI18N
+        jButton1.setText("  Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 417, 153, 44));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Booklabel)
-                    .addComponent(Memberlabel)
-                    .addComponent(Issuelabel)
-                    .addComponent(Duelabel))
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BackButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(ReturnButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                        .addComponent(SearchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Bookfield)
-                        .addComponent(Memberfield)
-                        .addComponent(IssueField)
-                        .addComponent(DueField)))
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Booklabel)
-                            .addComponent(Bookfield, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Memberlabel)
-                            .addComponent(Memberfield, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(IssueField, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Issuelabel)))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DueField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Duelabel))
-                .addGap(32, 32, 32)
-                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(ReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(BackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 651));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+    private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // TODO add your handling code here:
-        String bookID = Bookfield.getText();
-        String memberID = Memberfield.getText();
-        try{
-            Connection con = Databaseconnection.getCon();
-            Statement st = con.createStatement();
+    }//GEN-LAST:event_idActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      // TODO add your handling code here:
+         try{
+            stmt = conn.createStatement();
+            int ID_no = Integer.parseInt(id.getText());
             
-            ResultSet rs = st.executeQuery("select *from issuebooks where No='"+bookID+"' and ID_Number='"+memberID+"'");
-            if(rs.next())
-            {
-                IssueField.setText(rs.getString(3));
-                DueField.setText(rs.getString(4));
-                Bookfield.setEditable(false);
-                Memberfield.setEditable(false);
+          
+            String sql = "SELECT * FROM issuebooks WHERE ID_number = '"+ID_no+"' ";
+          
+            rs = stmt.executeQuery(sql);
+            if(rs.next()){
                 
-            }
-            else 
-                JOptionPane.showMessageDialog(null,"Incorrect Member ID or Incorrect Book ID");
-                setVisible(false);
-                new ReturnBooks().setVisible(true);
+                  bookfield.setText(rs.getString("No"));
+                  Issuefield.setText(rs.getString("IssueDate"));
+                  Duefield.setText(rs.getString("DueDate"));
+            }else{
+                JOptionPane.showMessageDialog(null,"Record not found");
+            }    
+              
+      } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, e);}
 
-        }
-        catch(Exception e)
-        {    
-            JOptionPane.showMessageDialog(null, "Connection Error");
-        }
-    }//GEN-LAST:event_SearchButtonActionPerformed
-
-    private void ReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnButtonActionPerformed
-        // TODO add your handling code here:
-        
-         
-        String bookID = Bookfield.getText();
-        String memberID = Memberfield.getText();
-        try
-        {
-            Connection con=Databaseconnection.getCon();
-            Statement st=con.createStatement();
-            st.executeQuery("update issuebooks set ReturnBooks = 'YES' where ID_Number='"+memberID+"' and No='"+bookID+"')");
-            JOptionPane.showMessageDialog(null,"Book successfully returned");
-            setVisible(false);
-            new ReturnBooks().setVisible(true);             
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,"Connection Error");
             
-        }
-    }//GEN-LAST:event_ReturnButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void bookfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bookfieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +163,7 @@ public class ReturnBooks extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ReturnBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -231,16 +174,15 @@ public class ReturnBooks extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BackButton;
-    private javax.swing.JTextField Bookfield;
-    private javax.swing.JLabel Booklabel;
-    private javax.swing.JTextField DueField;
-    private javax.swing.JLabel Duelabel;
-    private javax.swing.JTextField IssueField;
-    private javax.swing.JLabel Issuelabel;
-    private javax.swing.JTextField Memberfield;
-    private javax.swing.JLabel Memberlabel;
-    private javax.swing.JButton ReturnButton;
-    private javax.swing.JButton SearchButton;
+    private javax.swing.JTextField Duefield;
+    private javax.swing.JTextField Issuefield;
+    private javax.swing.JTextField bookfield;
+    private javax.swing.JTextField id;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
