@@ -188,7 +188,7 @@ public class Home extends javax.swing.JFrame {
     private void DeleteandUpateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteandUpateButtonActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        DeleteStudentDetails object = new DeleteStudentDetails();
+        DeleteandUpdates object = new DeleteandUpdates();
         object.setVisible(true);
         
     }//GEN-LAST:event_DeleteandUpateButtonActionPerformed
