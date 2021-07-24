@@ -33,12 +33,14 @@ public class Home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         bookicon = new javax.swing.JButton();
         membericon = new javax.swing.JButton();
-        isuuebookicon = new javax.swing.JButton();
         issuebooklabel = new javax.swing.JLabel();
         returnbookButton = new javax.swing.JButton();
         Returnbooklabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         ShowdetailsButton = new javax.swing.JLabel();
+        ssbutton = new javax.swing.JButton();
+        Issue = new javax.swing.JButton();
+        DeleteandUpateButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -88,18 +90,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel2.add(membericon, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 176, 155, -1));
 
-        isuuebookicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/im.png"))); // NOI18N
-        isuuebookicon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        isuuebookicon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isuuebookiconActionPerformed(evt);
-            }
-        });
-        jPanel2.add(isuuebookicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(792, 172, -1, -1));
-
         issuebooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         issuebooklabel.setText("Issue Books");
-        jPanel2.add(issuebooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 360, -1, -1));
+        jPanel2.add(issuebooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 360, -1, -1));
 
         returnbookButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download.jpg"))); // NOI18N
         returnbookButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
@@ -108,24 +101,46 @@ public class Home extends javax.swing.JFrame {
                 returnbookButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(returnbookButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 140, 150));
+        jPanel2.add(returnbookButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 140, 150));
 
         Returnbooklabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Returnbooklabel.setText("Return Book");
-        jPanel2.add(Returnbooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, -1, -1));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1111122.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 130, 160));
+        jPanel2.add(Returnbooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, -1, -1));
 
         ShowdetailsButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ShowdetailsButton.setText("Show Details");
-        jPanel2.add(ShowdetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 590, -1, -1));
+        jPanel2.add(ShowdetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, -1, -1));
+
+        ssbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1111122.png"))); // NOI18N
+        ssbutton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        ssbutton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ssbuttonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ssbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 130, 160));
+
+        Issue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/im.png"))); // NOI18N
+        Issue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        Issue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IssueActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Issue, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 150, 150));
+
+        DeleteandUpateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de.png"))); // NOI18N
+        DeleteandUpateButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        DeleteandUpateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteandUpateButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(DeleteandUpateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 410, 150, 150));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Delete & Update");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
 
@@ -148,20 +163,6 @@ public class Home extends javax.swing.JFrame {
 
     }//GEN-LAST:event_membericonActionPerformed
 
-    private void isuuebookiconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isuuebookiconActionPerformed
-        // TODO add your handling code here:
-           setVisible(false);
-           IssueBooks object = new IssueBooks();
-           object.setVisible(true);
-    }//GEN-LAST:event_isuuebookiconActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-           setVisible(false);
-           ShowAllDetails object = new ShowAllDetails();
-           object.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void returnbookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbookButtonActionPerformed
         // TODO add your handling code here:
            setVisible(false);
@@ -169,6 +170,28 @@ public class Home extends javax.swing.JFrame {
            object.setVisible(true);
            
     }//GEN-LAST:event_returnbookButtonActionPerformed
+
+    private void ssbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssbuttonActionPerformed
+        // TODO add your handling code here:
+           setVisible(false);
+           ShowAllDetails object = new ShowAllDetails();
+           object.setVisible(true);
+    }//GEN-LAST:event_ssbuttonActionPerformed
+
+    private void IssueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        IssueBook object = new IssueBook();
+        object.setVisible(true);
+    }//GEN-LAST:event_IssueActionPerformed
+
+    private void DeleteandUpateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteandUpateButtonActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        DeleteStudentDetails object = new DeleteStudentDetails();
+        object.setVisible(true);
+        
+    }//GEN-LAST:event_DeleteandUpateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,18 +229,20 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeleteandUpateButton;
+    private javax.swing.JButton Issue;
     private javax.swing.JLabel Returnbooklabel;
     private javax.swing.JLabel ShowdetailsButton;
     private javax.swing.JButton bookicon;
     private javax.swing.JLabel issuebooklabel;
-    private javax.swing.JButton isuuebookicon;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton membericon;
     private javax.swing.JButton returnbookButton;
+    private javax.swing.JButton ssbutton;
     // End of variables declaration//GEN-END:variables
 }
