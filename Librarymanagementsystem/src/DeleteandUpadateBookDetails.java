@@ -164,6 +164,7 @@ public class DeleteandUpadateBookDetails extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
         jPanel2.add(book, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, 30));
 
+        jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sss.png"))); // NOI18N
         jButton1.setText("Search");
@@ -220,9 +221,14 @@ public class DeleteandUpadateBookDetails extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             stmt = conn.createStatement();
-            int Isbn = Integer.parseInt(textIsbn.getText());
-            String sql = "DELETE FROM book WHERE ISBN = '"+Isbn+"'";
+            int bookid = Integer.parseInt(book.getText());
+            String sql = "DELETE FROM books WHERE No = '"+bookid+"' ";
             stmt.executeUpdate(sql);
+            
+            setVisible(false);
+            ShowAllDetails object = new ShowAllDetails();
+            object.setVisible(true);
+            
         }catch(Exception e){JOptionPane.showMessageDialog(null,e);}
         
     }//GEN-LAST:event_deletebuttonActionPerformed
