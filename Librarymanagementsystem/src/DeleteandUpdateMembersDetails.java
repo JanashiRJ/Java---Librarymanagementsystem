@@ -45,13 +45,14 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        textIdnumber = new javax.swing.JTextField();
+        member = new javax.swing.JTextField();
         textname = new javax.swing.JTextField();
         textemail = new javax.swing.JTextField();
         textnumber = new javax.swing.JTextField();
         textGuname = new javax.swing.JTextField();
         textcity = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,12 +110,12 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
         jLabel6.setText("City");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
-        textIdnumber.addActionListener(new java.awt.event.ActionListener() {
+        member.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textIdnumberActionPerformed(evt);
+                memberActionPerformed(evt);
             }
         });
-        jPanel1.add(textIdnumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 170, 30));
+        jPanel1.add(member, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 170, 30));
 
         textname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +137,17 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 170, 40));
+
+        jButton2.setBackground(new java.awt.Color(0, 51, 51));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sss.png"))); // NOI18N
+        jButton2.setText("  Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,36 +179,52 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
 
     private void SubmitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbuttonActionPerformed
         // TODO add your handling code here:
-        try{
-            stmt = conn.createStatement();
-            String member_name = textname.getText();
-            String email = textemail.getText();
-            String  Id_no = textIdnumber.getText();
-            int contact_no = Integer.parseInt(textnumber.getText());
-            String Guardian_name = textGuname.getText();
-            String City = textcity.getText();
-
-            String sql = "INSERT INTO NEW_MEMBER(Member_Name, Email,ID_Number,Contact_NO,Guardian_Name,City) VALUES('"+member_name+"', '"+email+"', '"+Id_no+"','"+contact_no+"','"+Guardian_name+"','"+City+"')";
-
-            stmt.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"Data is successfully inserted");
-
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+       
+        
     }//GEN-LAST:event_SubmitbuttonActionPerformed
 
     private void textnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textnameActionPerformed
 
-    private void textIdnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdnumberActionPerformed
+    private void memberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textIdnumberActionPerformed
+    }//GEN-LAST:event_memberActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try{
+            stmt = conn.createStatement();
+            int id = Integer.parseInt(member.getText());
+            
+            String sql = "SELECT * FROM new_member WHERE ID_Number = '"+id+"' ";
+            
+            rs = stmt.executeQuery(sql);
+            
+            if(rs.next()){
+            
+                textname.setText(rs.getString("Member_Name"));
+                textemail.setText(rs.getString("Email"));
+                textnumber.setText(rs.getString("Contact_No"));
+                textGuname.setText(rs.getString("Guardian_Name"));
+                textcity.setText(rs.getString("City"));
+              
+            }else{
+                JOptionPane.showMessageDialog(null," Details Not Found");
+            }
+
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Data is sucessfuly inserted");
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +272,7 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
     private javax.swing.JButton Backbutton;
     private javax.swing.JButton Submitbutton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -251,8 +280,8 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField member;
     private javax.swing.JTextField textGuname;
-    private javax.swing.JTextField textIdnumber;
     private javax.swing.JTextField textcity;
     private javax.swing.JTextField textemail;
     private javax.swing.JTextField textname;
