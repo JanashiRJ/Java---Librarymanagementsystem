@@ -193,6 +193,18 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+          try{
+              stmt = conn.createStatement();
+              int member_id = Integer.parseInt(member.getText());
+              String sql = "DELETE FROM new_member WHERE ID_Number='"+member_id+"' ";
+              stmt.executeUpdate(sql);
+              
+              setVisible(false);
+              ShowAllDetails object = new ShowAllDetails();
+              object.setVisible(true);  
+         
+        }catch(Exception e){JOptionPane.showMessageDialog(null,e);}
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
