@@ -75,7 +75,7 @@ public class DeleteandUpdates extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 234, -1, 137));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Student Details");
+        jLabel2.setText("Member Details");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 417, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -114,7 +114,7 @@ public class DeleteandUpdates extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        DeleteBookDetails object = new DeleteBookDetails();
+        DeleteandUpadateBookDetails object = new DeleteandUpadateBookDetails();
         object.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -129,7 +129,7 @@ public class DeleteandUpdates extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        DeleteStudentsDetails object = new DeleteStudentsDetails();
+        DeleteandUpdateMembersDetails object = new DeleteandUpdateMembersDetails();
         object.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
