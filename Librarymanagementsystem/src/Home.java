@@ -61,7 +61,7 @@ public class Home extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Home", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
         jLabel2.setText("Welcome to Library Management System");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 82, -1, -1));
 
@@ -74,7 +74,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 362, -1, -1));
 
         bookicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images.jpg"))); // NOI18N
-        bookicon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         bookicon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bookiconActionPerformed(evt);
@@ -83,7 +82,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(bookicon, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 176, 154, -1));
 
         membericon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/student.png"))); // NOI18N
-        membericon.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         membericon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 membericonActionPerformed(evt);
@@ -96,7 +94,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(issuebooklabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 360, -1, -1));
 
         returnbookButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/download.jpg"))); // NOI18N
-        returnbookButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         returnbookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnbookButtonActionPerformed(evt);
@@ -113,7 +110,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(ShowdetailsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, -1, -1));
 
         ssbutton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1111122.png"))); // NOI18N
-        ssbutton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
         ssbutton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ssbuttonActionPerformed(evt);
@@ -122,7 +118,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(ssbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 130, 160));
 
         Issue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/im.png"))); // NOI18N
-        Issue.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         Issue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IssueActionPerformed(evt);
@@ -131,7 +126,6 @@ public class Home extends javax.swing.JFrame {
         jPanel2.add(Issue, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 180, 150, 150));
 
         DeleteandUpateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/de.png"))); // NOI18N
-        DeleteandUpateButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         DeleteandUpateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteandUpateButtonActionPerformed(evt);
@@ -199,6 +193,7 @@ public class Home extends javax.swing.JFrame {
 
     private void DeleteandUpateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteandUpateButtonActionPerformed
         // TODO add your handling code here:
+        
         setVisible(false);
         DeleteandUpdates object = new DeleteandUpdates();
         object.setVisible(true);
@@ -208,6 +203,7 @@ public class Home extends javax.swing.JFrame {
     private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
+        
     }//GEN-LAST:event_LogOutButtonActionPerformed
 
     /**
