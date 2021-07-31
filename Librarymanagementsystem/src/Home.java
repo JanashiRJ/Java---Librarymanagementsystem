@@ -41,6 +41,7 @@ public class Home extends javax.swing.JFrame {
         Issue = new javax.swing.JButton();
         DeleteandUpateButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        LogOutButton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -142,6 +143,17 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setText("Delete & Update");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 590, -1, -1));
 
+        LogOutButton.setBackground(new java.awt.Color(0, 51, 51));
+        LogOutButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        LogOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logout.png"))); // NOI18N
+        LogOutButton.setText("  Log Out");
+        LogOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(LogOutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 520, 130, 40));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 650));
 
         pack();
@@ -193,6 +205,11 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_DeleteandUpateButtonActionPerformed
 
+    private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_LogOutButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,6 +248,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DeleteandUpateButton;
     private javax.swing.JButton Issue;
+    private javax.swing.JButton LogOutButton;
     private javax.swing.JLabel Returnbooklabel;
     private javax.swing.JLabel ShowdetailsButton;
     private javax.swing.JButton bookicon;
