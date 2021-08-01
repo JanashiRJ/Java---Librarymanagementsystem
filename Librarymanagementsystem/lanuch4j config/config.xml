@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Admin\Documents\NetBeansProjects\final-project-JanashiRJ\Librarymanagementsystem\dist\LibraryManagementSystem.jar</jar>
+  <outfile>C:\Users\Admin\Documents\NetBeansProjects\final-project-JanashiRJ\Librarymanagementsystem\dist\Library Management System.exe</outfile>
+  <errTitle>My awesome program need java. Please install java first.</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Admin\Documents\NetBeansProjects\final-project-JanashiRJ\Librarymanagementsystem\src\resources\Book Icon.ico</icon>
+  <singleInstance>
+    <mutexName>Library management system</mutexName>
+    <windowTitle>Library management system</windowTitle>
+  </singleInstance>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0.0</txtFileVersion>
+    <fileDescription>Library management Software</fileDescription>
+    <copyright>NIL</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0.0</txtProductVersion>
+    <productName>Library Management System</productName>
+    <companyName>Genuine Coder</companyName>
+    <internalName>Library Management System</internalName>
+    <originalFilename>Library Management System.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

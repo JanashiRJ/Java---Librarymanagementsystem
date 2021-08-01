@@ -15,15 +15,22 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class IssueBooks extends javax.swing.JFrame {
+public class Newfile extends javax.swing.JFrame {
 
     //private String BookId;
 
     /**
      * Creates new form IssueBooks
      */
-    public IssueBooks() {
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+ 
+    
+    public Newfile() {
+        super ("Issue Books");
         initComponents();
+       // conn = Databaseconnection.connection();
     }
 
     /**
@@ -131,41 +138,26 @@ public class IssueBooks extends javax.swing.JFrame {
 
     private void IssueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IssueButtonActionPerformed
         // TODO add your handling code here:
-        SimpleDateFormat dFormat=new SimpleDateFormat("dd-MM-yyyy");
-        String bookID = BokIdfield.getText();
-        String memberId = MemberIdfield.getText();
-        String issueDate = dFormat.format(IssueDate.getDate());
-        String dueDate = dFormat.format(DueDate.getDate());
-        String returnBook ="No";
-        
         try{
-            Connection con=Databaseconnection.getCon();
-            Statement st= con.createStatement();
-            ResultSet rs=st.executeQuery("select *from book where No ='"+bookID+"'");
-            if(rs.next())
-            {
-                ResultSet rsl=st.executeQuery("Select 'from new_member where ID_Number='"+memberId+"'");
-                if(rsl.next());
-                {
-                    st.executeUpdate ("insert into issuebooks values('"+memberId+"','"+bookID+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')");
-                    
-                     JOptionPane.showMessageDialog(null,"Book successfully issued");
-                     setVisible(false);
-                     new IssueBooks().setVisible(true);
-                     
-                }
-               // else 
-                JOptionPane.showConfirmDialog(null,"Incorrect MemberID");
-                
-            }
-            else
-                JOptionPane.showConfirmDialog(null,"Incorrect BookId ");
+            stmt = conn.createStatement();
+            SimpleDateFormat dFormat=new SimpleDateFormat("dd-MM-yyyy");
+            String bookID = BokIdfield.getText();
+            String memberId = MemberIdfield.getText();
+            String issueDate = dFormat.format(IssueDate.getDate());
+            String dueDate = dFormat.format(DueDate.getDate());
+            String returnBook ="No";
+            
+            String sql = "INSERT INTO issuebooks(ID_number,No,IssueDate,DueDate,ReturnBooks)VALUES('"+bookID+"','"+memberId+"','"+issueDate+"','"+dueDate+"','"+returnBook+"')";
+        
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null,"Data is successfully inserted");
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        
             
         }
-        catch(Exception e)
-        {
-            JOptionPane.showConfirmDialog(null,"Connection error");     
-        }             
+       
     }//GEN-LAST:event_IssueButtonActionPerformed
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
@@ -189,20 +181,23 @@ public class IssueBooks extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IssueBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Newfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IssueBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Newfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IssueBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Newfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IssueBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Newfile.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IssueBooks().setVisible(true);
+           public void run() {
+                new Newfile().setVisible(true);
             }
         });
     }
