@@ -286,7 +286,7 @@ public class DeleteandUpadateBookDetails extends javax.swing.JFrame {
             String date = textDate.getText();
             String category = textCategory.getText();
             int quantity = Integer.parseInt(textQuantity.getText());
-           
+             
             String sql = "UPDATE books SET ISBN='"+Isbn+"',Title='"+title+"',Author='"+author+"',Publisher='"+publisher+"',Date='"+date+"',Category='"+category+"',Quantity='"+quantity+"' ";
 
             
@@ -297,6 +297,7 @@ public class DeleteandUpadateBookDetails extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
+    
     }//GEN-LAST:event_updateActionPerformed
 
     /**
