@@ -25,7 +25,7 @@ public class AddBooks extends javax.swing.JFrame {
     public AddBooks() {
         super("Add Books");
         initComponents();
-        conn = Databaseconnection.connetion();
+        conn = Databaseconnectionprovider.connetion();
     }
 
     /**
@@ -64,7 +64,7 @@ public class AddBooks extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add New Books", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Add New Books", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         isbnlabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
