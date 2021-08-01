@@ -179,6 +179,26 @@ public class DeleteandUpdateMembersDetails extends javax.swing.JFrame {
 
     private void SubmitbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitbuttonActionPerformed
         // TODO add your handling code here:
+          try{
+            stmt = conn.createStatement();      
+            int member_id = Integer.parseInt(member.getText());
+            String name = textname.getText();
+            String email = textemail.getText();
+            String contact_no = textnumber.getText(); 
+            String Guardian_name= textGuname.getText();
+            String city = textcity.getText();
+         
+             
+            String sql = "UPDATE new_member SET Member_Name ='"+name+"',Email='"+email+"',Contact_No='"+contact_no+"',Guardian_Name='"+Guardian_name+"',City='"+city+"' ";
+
+            
+            stmt.executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Data is sucessfuly Updated");
+            
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
        
         
     }//GEN-LAST:event_SubmitbuttonActionPerformed
