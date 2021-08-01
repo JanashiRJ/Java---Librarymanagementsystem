@@ -25,7 +25,7 @@ public class AddMembers extends javax.swing.JFrame {
     public AddMembers() {
         super ("Add_Members");
         initComponents();
-        conn = Databaseconnection.connetion();
+        conn = Databaseconnectionprovider.connetion();
     }
 
     /**
@@ -39,6 +39,7 @@ public class AddMembers extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jSlider1 = new javax.swing.JSlider();
         Namefield = new javax.swing.JLabel();
         Emailfield = new javax.swing.JLabel();
         Cantactfield = new javax.swing.JLabel();
@@ -93,6 +94,12 @@ public class AddMembers extends javax.swing.JFrame {
             }
         });
         getContentPane().add(textName, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 97, 170, 29));
+
+        textEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmailActionPerformed(evt);
+            }
+        });
         getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 165, 170, 29));
 
         textId.addActionListener(new java.awt.event.ActionListener() {
@@ -106,8 +113,9 @@ public class AddMembers extends javax.swing.JFrame {
         getContentPane().add(textCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(237, 441, 170, 31));
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Add New Members", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Add New Members", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Backbutton.setBackground(new java.awt.Color(102, 102, 102));
         Backbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -119,6 +127,7 @@ public class AddMembers extends javax.swing.JFrame {
                 BackbuttonActionPerformed(evt);
             }
         });
+        jPanel1.add(Backbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 560, 169, 40));
 
         Submitbutton.setBackground(new java.awt.Color(102, 102, 102));
         Submitbutton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -130,27 +139,7 @@ public class AddMembers extends javax.swing.JFrame {
                 SubmitbuttonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(242, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(111, 111, 111))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(485, Short.MAX_VALUE)
-                .addComponent(Submitbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Backbutton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
+        jPanel1.add(Submitbutton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 169, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 650));
 
@@ -194,6 +183,10 @@ public class AddMembers extends javax.swing.JFrame {
         
           
     }//GEN-LAST:event_BackbuttonActionPerformed
+
+    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +234,7 @@ public class AddMembers extends javax.swing.JFrame {
     private javax.swing.JButton Submitbutton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSlider jSlider1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField textCity;
     private javax.swing.JTextField textContact;
