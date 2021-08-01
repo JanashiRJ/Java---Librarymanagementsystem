@@ -25,7 +25,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         super ("Login");
         initComponents();
-        conn = Databaseconnection.connetion();
+        conn = Databaseconnectionprovider.connetion();
     }
 
     /**
@@ -155,11 +155,11 @@ public class Login extends javax.swing.JFrame {
             
             String sql = "SELECT *FROM userlogin WHERE UserName ='"+Username+"' && Password ='"+Password+"'";
             rs = stmt.executeQuery(sql);
-            if (rs.next()){
+            if (rs.next()){    
                 setVisible(false);
                 Home object = new Home();
                 object.setVisible(true);
-                
+                    
             }else{
                 JOptionPane.showMessageDialog(null,"username or password is invalid.");
             }
